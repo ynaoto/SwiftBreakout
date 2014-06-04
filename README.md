@@ -5,6 +5,8 @@ Breakout game in Swift
 
 Sites referred to learn Swift language and related APIs:
 
+* Apple Developers to download Xcode 6 beta (as of June 3, 2014)
+
 * [Apple](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html)
 The Swift Programming Language - Basics
 
