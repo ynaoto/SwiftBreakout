@@ -16,16 +16,11 @@ protocol MySceneDelegate {
 }
 
 class MyScene: SKScene, SKPhysicsContactDelegate {
-    var _padX: CGFloat!
-    var padX: CGFloat {
-    set(x) {
-        _padX = x
+    var padX: CGFloat! {
+    didSet {
         if _pad != nil {
-            _pad.position = CGPoint(x:x, y:_pad.position.y)
+            _pad.position = CGPoint(x:padX, y:_pad.position.y)
         }
-    }
-    get {
-        return _padX
     }
     }
     
