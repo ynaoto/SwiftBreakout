@@ -46,6 +46,7 @@
 		935D4060193E0C48008C14A7 /* Pop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pop.caf; sourceTree = "<group>"; };
 		935D4061193E0C48008C14A7 /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
 		935D4062193E0C48008C14A7 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		93FC324D193FE92F00C34C3C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 				93574F04193D5AFC00493FA9 /* ViewController.swift */,
 				93574F06193D5AFC00493FA9 /* Main.storyboard */,
 				935D405C193DAA38008C14A7 /* MyScene.swift */,
+				93FC324D193FE92F00C34C3C /* MyPlayground.playground */,
 				93574F09193D5AFC00493FA9 /* Images.xcassets */,
 				93574F00193D5AFC00493FA9 /* Supporting Files */,
 			);

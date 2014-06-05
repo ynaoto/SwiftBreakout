@@ -35,11 +35,11 @@ class ViewController: UIViewController, MySceneDelegate {
     }
 
     @IBAction func restart(_ : AnyObject) {
-        _myScene.respawn({ self.gameStart() })
+        _myScene.respawn(completion:{ self.gameStart() })
     }
     
     func respawn() {
-        _myScene.respawn({ self._readyToFire = true })
+        _myScene.respawn(completion:{ self._readyToFire = true })
     }
     
     func dead() {
@@ -73,7 +73,6 @@ class ViewController: UIViewController, MySceneDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let skView = self.skView
         _myScene = MyScene(size: skView.frame.size)
         skView.presentScene(_myScene)
 
