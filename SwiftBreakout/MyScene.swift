@@ -57,7 +57,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func respawn(completion block: (() -> Void)!) {
+    func respawn(completion block: () -> Void) {
         _ball.runAction(SKAction.moveTo(CGPoint(x:_pad.position.x, y:20), duration:0), completion:block)
     }
     
