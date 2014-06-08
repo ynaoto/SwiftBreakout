@@ -37,12 +37,12 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             (UIColor.blueColor(),   y0-48.0),
             ] {
             let n = 10
-            let blockWidth = size.width / Float(n)
+            let blockWidth = size.width / CGFloat(n)
             let blockSize = CGSize(width:0.9*blockWidth, height:10)
             
             for i in 0..n {
                 let sprite = SKSpriteNode(color:color, size:blockSize)
-                sprite.position = CGPoint(x:(Float(i) + 0.5) * blockWidth, y:y)
+                sprite.position = CGPoint(x:(CGFloat(i) + 0.5) * blockWidth, y:y)
                 sprite.physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size)
                 sprite.physicsBody.categoryBitMask = blockMask
                 sprite.physicsBody.dynamic = false
@@ -57,7 +57,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func fire() {
-        _ball.physicsBody.applyImpulse(CGVector(0.5 - Float(arc4random() % 2), 0.5))
+        _ball.physicsBody.applyImpulse(CGVector(0.5 - CGFloat(arc4random() % 2), 0.5))
     }
 
     let wallMask     : UInt32 = 0b000001
@@ -89,8 +89,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             _blocks.removeObject(againstBody.node)
             againstBody.node.removeFromParent()
             let v = ballBody.velocity
-            let n = hypotf(v.dx, v.dy)
-            let av = CGVector(0.1 * v.dx / n, 0.1 * v.dy / n)
+            let n = hypotf(CFloat(v.dx), CFloat(v.dy))
+            let av = CGVector(0.1 * v.dx / CGFloat(n), 0.1 * v.dy / CGFloat(n))
             ballBody.applyImpulse(av)
 
             if _blocks.count < 1 {

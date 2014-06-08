@@ -66,7 +66,7 @@ class ViewController: UIViewController, MySceneDelegate {
             _myScene.fire()
             _readyToFire = false
         }
-        _myScene.padX = sender.value
+        _myScene.padX = CGFloat(sender.value)
     }
     
     override func viewDidLoad() {
@@ -77,8 +77,8 @@ class ViewController: UIViewController, MySceneDelegate {
         skView.presentScene(_myScene)
 
         padSlider.minimumValue = 0
-        padSlider.maximumValue = _myScene.size.width
-        padSlider.value = _myScene.padX
+        padSlider.maximumValue = CFloat(_myScene.size.width)
+        padSlider.value = CFloat(_myScene.padX)
         
         _myScene.mySceneDelegate = self
         gameStart()
