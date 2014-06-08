@@ -9,6 +9,13 @@
 import UIKit
 import SpriteKit
 
+@infix func / (left: CGFloat, right: Int) -> CGFloat {
+    return left / CGFloat(right)
+}
+
+@infix func + (left: Int, right: CGFloat) -> CGFloat {
+    return CGFloat(left) + right
+}
 
 protocol MySceneDelegate {
     func dead()
@@ -30,19 +37,19 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
         _blocks = NSMutableSet()
         let y0 = size.height - 50
         for (color, y) in [
-            (UIColor.redColor(),    y0-0.0),
-            (UIColor.orangeColor(), y0-12.0),
-            (UIColor.yellowColor(), y0-24.0),
-            (UIColor.greenColor(),  y0-36.0),
-            (UIColor.blueColor(),   y0-48.0),
+            (UIColor.redColor(),    y0-0),
+            (UIColor.orangeColor(), y0-12),
+            (UIColor.yellowColor(), y0-24),
+            (UIColor.greenColor(),  y0-36),
+            (UIColor.blueColor(),   y0-48),
             ] {
             let n = 10
-            let blockWidth = size.width / CGFloat(n)
+            let blockWidth = size.width / n
             let blockSize = CGSize(width:0.9*blockWidth, height:10)
             
             for i in 0..n {
                 let sprite = SKSpriteNode(color:color, size:blockSize)
-                sprite.position = CGPoint(x:(CGFloat(i) + 0.5) * blockWidth, y:y)
+                sprite.position = CGPoint(x:(i + 0.5) * blockWidth, y:y)
                 sprite.physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size)
                 sprite.physicsBody.categoryBitMask = blockMask
                 sprite.physicsBody.dynamic = false
@@ -90,7 +97,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             againstBody.node.removeFromParent()
             let v = ballBody.velocity
             let n = hypotf(CFloat(v.dx), CFloat(v.dy))
-            let av = CGVector(0.1 * v.dx / CGFloat(n), 0.1 * v.dy / CGFloat(n))
+            let av = CGVector(0.1 * v.dx / n, 0.1 * v.dy / n)
             ballBody.applyImpulse(av)
 
             if _blocks.count < 1 {
