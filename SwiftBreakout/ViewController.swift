@@ -18,15 +18,14 @@ class ViewController: UIViewController, MySceneDelegate {
 
     var _myScene : MyScene!
     var _readyToFire = false
-    var _lifeCount = 0
-
-    func updateLifeLabel() {
+    var _lifeCount : Int = 0 {
+    didSet {
         lifeLabel.text = String(_lifeCount)
+    }
     }
 
     func gameStart() {
         _lifeCount = 10
-        updateLifeLabel()
         gameOverButton.hidden = true
         gameClearButton.hidden = true
         
@@ -44,7 +43,6 @@ class ViewController: UIViewController, MySceneDelegate {
     
     func dead() {
         _lifeCount--
-        updateLifeLabel()
         
         if 0 < _lifeCount {
             NSTimer.scheduledTimerWithTimeInterval(3.0,
