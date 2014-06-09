@@ -1,3 +1,13 @@
 import UIKit
 
-let n = 2; 1.0/n
+var i = 0
+i
+i+1
+100
+let j = 100
+let r = 1..100
+for i in 0..100 {
+    i
+}
+
+

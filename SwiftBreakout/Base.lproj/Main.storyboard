@@ -13,14 +13,14 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7c-wU-AE8" customClass="SKView">
-                                <rect key="frame" x="20" y="20" width="440" height="348"/>
+                                <rect key="frame" x="20" y="20" width="280" height="348"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUm-EM-ThS">
-                                        <rect key="frame" x="145" y="136" width="150" height="76"/>
+                                        <rect key="frame" x="65" y="136" width="150" height="76"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
                                         <state key="normal" title="CLEAR!">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -30,7 +30,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj6-tH-IWs">
-                                        <rect key="frame" x="97.5" y="136" width="245" height="76"/>
+                                        <rect key="frame" x="18" y="136" width="245" height="76"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
                                         <state key="normal" title="GAME OVER">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r2E-Zh-AhH">
-                                <rect key="frame" x="18" y="414" width="444" height="31"/>
+                                <rect key="frame" x="18" y="414" width="284" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="YTa-HX-juQ"/>
                                 </constraints>
@@ -58,7 +58,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukj-Fu-FyU">
-                                <rect key="frame" x="20" y="376" width="42" height="20.5"/>
+                                <rect key="frame" x="20" y="376" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="DEi-7n-2CJ"/>
                                 </constraints>
@@ -79,8 +79,9 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="r2E-Zh-AhH" secondAttribute="bottom" constant="36" id="fhO-xI-TPi"/>
                             <constraint firstItem="H7c-wU-AE8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="kjj-Om-hRn"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="gameClearButton" destination="TUm-EM-ThS" id="ujx-o7-Cy7"/>
                         <outlet property="gameOverButton" destination="lj6-tH-IWs" id="Zcg-vH-awN"/>
