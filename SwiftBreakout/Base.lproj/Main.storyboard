@@ -68,6 +68,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="H7c-wU-AE8" secondAttribute="trailing" constant="20" id="DzS-Ud-GWX"/>
                             <constraint firstAttribute="trailing" secondItem="r2E-Zh-AhH" secondAttribute="trailing" constant="20" id="K7u-w6-IKM"/>
@@ -79,6 +80,9 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="r2E-Zh-AhH" secondAttribute="bottom" constant="36" id="fhO-xI-TPi"/>
                             <constraint firstItem="H7c-wU-AE8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="kjj-Om-hRn"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UWx-8F-Kpf" appends="YES" id="XxN-VJ-dzA"/>
+                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -91,6 +95,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="UWx-8F-Kpf">
+                    <connections>
+                        <action selector="pan:" destination="vXZ-lx-hvc" id="75i-9g-zCf"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="357" y="163"/>
         </scene>

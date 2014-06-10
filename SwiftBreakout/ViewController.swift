@@ -58,13 +58,23 @@ class ViewController: UIViewController, MySceneDelegate {
         gameClearButton.hidden = false
         _readyToFire = false
     }
-    
-    @IBAction func padSliderMoved(sender : UISlider) {
+
+    func setPadPosition(value:CGFloat) {
         if _readyToFire {
             _myScene.fire()
             _readyToFire = false
         }
-        _myScene.padX = CGFloat(sender.value)
+        _myScene.padX = value
+    }
+    
+    @IBAction func padSliderMoved(sender : UISlider) {
+        setPadPosition(sender.value)
+    }
+    
+    @IBAction func pan(sender : UIPanGestureRecognizer) {
+        let value = sender.locationInView(_myScene.view).x
+        padSlider.value = value
+        setPadPosition(value)
     }
     
     override func viewDidLoad() {
