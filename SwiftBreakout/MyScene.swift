@@ -47,7 +47,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             let blockWidth = size.width / n
             let blockSize = CGSize(width:0.9*blockWidth, height:10)
             
-            for i in 0..n {
+            for i in 0..<n {
                 let sprite = SKSpriteNode(color:color, size:blockSize)
                 sprite.position = CGPoint(x:(i + 0.5) * blockWidth, y:y)
                 sprite.physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size)
