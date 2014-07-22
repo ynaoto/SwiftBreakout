@@ -9,14 +9,6 @@
 import UIKit
 import SpriteKit
 
-@infix func / (left: CGFloat, right: Int) -> CGFloat {
-    return left / CGFloat(right)
-}
-
-@infix func + (left: Int, right: CGFloat) -> CGFloat {
-    return CGFloat(left) + right
-}
-
 protocol MySceneDelegate {
     func dead()
     func clear()
@@ -44,7 +36,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             (UIColor.blueColor(),   y0-48),
             ] {
             let n = 10
-            let blockWidth = size.width / n
+            let blockWidth = size.width / CGFloat(n)
             let blockSize = CGSize(width:0.9*blockWidth, height:10)
             
             for i in 0..<n {
