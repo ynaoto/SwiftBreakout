@@ -23,10 +23,10 @@ protocol MySceneDelegate {
 }
 
 class MyScene: SKScene, SKPhysicsContactDelegate {
-    var padX: CGFloat! {
+    var padX: Float! {
     didSet {
         if _pad != nil {
-            _pad.position = CGPoint(x:padX, y:_pad.position.y)
+            _pad.position = CGPoint(x:CGFloat(padX), y:_pad.position.y)
         }
     }
     }
@@ -64,7 +64,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func fire() {
-        _ball.physicsBody.applyImpulse(CGVector(0.5 - CGFloat(arc4random() % 2), 0.5))
+        _ball.physicsBody.applyImpulse(CGVector(CGFloat(arc4random() % 2 == 0 ? -0.5 : 0.5), 0.5))
     }
 
     let wallMask     : UInt32 = 0b000001
@@ -96,8 +96,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             _blocks.removeObject(againstBody.node)
             againstBody.node.removeFromParent()
             let v = ballBody.velocity
-            let n = hypotf(CFloat(v.dx), CFloat(v.dy))
-            let av = CGVector(0.1 * v.dx / n, 0.1 * v.dy / n)
+            let n = hypotf(Float(v.dx), Float(v.dy))
+            let av = CGVector(CGFloat(0.1 * Float(v.dx) / n), CGFloat(0.1 * Float(v.dy) / n))
             ballBody.applyImpulse(av)
 
             if _blocks.count < 1 {
@@ -146,9 +146,9 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
         _ball.physicsBody.contactTestBitMask = blockMask|padMask|deadZoneMask
         addChild(_ball)
         
-        padX = size.width / 2
+        padX = Float(size.width) / 2
         _pad = SKSpriteNode(color:UIColor.lightGrayColor(), size:CGSize(width:50, height:10))
-        _pad.position = CGPoint(x:padX, y:10)
+        _pad.position = CGPoint(x:CGFloat(padX), y:10)
         _pad.physicsBody = SKPhysicsBody(rectangleOfSize:_pad.size)
         _pad.physicsBody.categoryBitMask = padMask
         _pad.physicsBody.dynamic = false

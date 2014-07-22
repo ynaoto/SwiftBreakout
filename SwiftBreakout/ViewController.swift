@@ -10,11 +10,11 @@ import UIKit
 import SpriteKit
 
 class ViewController: UIViewController, MySceneDelegate {
-    @IBOutlet var skView : SKView
-    @IBOutlet var padSlider : UISlider
-    @IBOutlet var lifeLabel : UILabel
-    @IBOutlet var gameOverButton : UIButton
-    @IBOutlet var gameClearButton : UIButton
+    @IBOutlet weak var skView : SKView!
+    @IBOutlet weak var padSlider : UISlider!
+    @IBOutlet weak var lifeLabel : UILabel!
+    @IBOutlet weak var gameOverButton : UIButton!
+    @IBOutlet weak var gameClearButton : UIButton!
 
     var _myScene : MyScene!
     var _readyToFire = false
@@ -59,7 +59,7 @@ class ViewController: UIViewController, MySceneDelegate {
         _readyToFire = false
     }
 
-    func setPadPosition(value:CGFloat) {
+    func setPadPosition(value:Float) {
         if _readyToFire {
             _myScene.fire()
             _readyToFire = false
@@ -72,7 +72,7 @@ class ViewController: UIViewController, MySceneDelegate {
     }
     
     @IBAction func pan(sender : UIPanGestureRecognizer) {
-        let value = sender.locationInView(_myScene.view).x
+        let value = Float(sender.locationInView(_myScene.view).x)
         padSlider.value = value
         setPadPosition(value)
     }
@@ -85,8 +85,8 @@ class ViewController: UIViewController, MySceneDelegate {
         skView.presentScene(_myScene)
 
         padSlider.minimumValue = 0
-        padSlider.maximumValue = CFloat(_myScene.size.width)
-        padSlider.value = CFloat(_myScene.padX)
+        padSlider.maximumValue = Float(_myScene.size.width)
+        padSlider.value = Float(_myScene.padX)
         
         _myScene.mySceneDelegate = self
         gameStart()
