@@ -15,6 +15,10 @@ protocol MySceneDelegate {
 }
 
 class MyScene: SKScene, SKPhysicsContactDelegate {
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
+    
     var padX: Float! {
     didSet {
         if _pad != nil {
@@ -41,7 +45,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             
             for i in 0..<n {
                 let sprite = SKSpriteNode(color:color, size:blockSize)
-                sprite.position = CGPoint(x:(i + 0.5) * blockWidth, y:y)
+                sprite.position = CGPoint(x:(CGFloat(i) + 0.5) * blockWidth, y:y)
                 sprite.physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size)
                 sprite.physicsBody.categoryBitMask = blockMask
                 sprite.physicsBody.dynamic = false
@@ -111,7 +115,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    init(size aSize: CGSize) {
+    override init(size aSize: CGSize) {
         super.init(size: aSize)
 
         physicsBody = SKPhysicsBody(edgeLoopFromRect:frame)
