@@ -15,7 +15,7 @@ protocol MySceneDelegate {
 }
 
 class MyScene: SKScene, SKPhysicsContactDelegate {
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -107,7 +107,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             _ball.physicsBody.velocity = CGVector(0, 0)
             
             let smokePath = NSBundle.mainBundle().pathForResource("Smoke", ofType:"sks")
-            let smoke = NSKeyedUnarchiver.unarchiveObjectWithFile(smokePath) as SKEmitterNode
+            let smoke = NSKeyedUnarchiver.unarchiveObjectWithFile(smokePath!) as SKEmitterNode
             smoke.position = _ball.position
             addChild(smoke)
             
