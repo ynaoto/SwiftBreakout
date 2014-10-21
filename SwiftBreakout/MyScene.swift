@@ -15,7 +15,7 @@ protocol MySceneDelegate {
 }
 
 class MyScene: SKScene, SKPhysicsContactDelegate {
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -60,7 +60,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func fire() {
-        _ball.physicsBody?.applyImpulse(CGVector(CGFloat(arc4random() % 2 == 0 ? -0.5 : 0.5), 0.5))
+        _ball.physicsBody?.applyImpulse(CGVector(dx: CGFloat(arc4random() % 2 == 0 ? -0.5 : 0.5), dy: 0.5))
     }
 
     let wallMask     : UInt32 = 0b000001
@@ -93,18 +93,18 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             againstBody.node?.removeFromParent()
             let v = ballBody.velocity
             let n = hypotf(Float(v.dx), Float(v.dy))
-            let av = CGVector(CGFloat(0.1 * Float(v.dx) / n), CGFloat(0.1 * Float(v.dy) / n))
+            let av = CGVector(dx: CGFloat(0.1 * Float(v.dx) / n), dy: CGFloat(0.1 * Float(v.dy) / n))
             ballBody.applyImpulse(av)
 
             if _blocks.count < 1 {
-                _ball.physicsBody?.velocity = CGVector(0, 0)
+                _ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 mySceneDelegate?.clear()
             }
         } else if (againstBody.categoryBitMask & padMask) != 0 {
             runAction(_padSound)
         } else if (againstBody.categoryBitMask & deadZoneMask) != 0 {
             runAction(_deadSound)
-            _ball.physicsBody?.velocity = CGVector(0, 0)
+            _ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             
             let smokePath = NSBundle.mainBundle().pathForResource("Smoke", ofType:"sks")
             let smoke = NSKeyedUnarchiver.unarchiveObjectWithFile(smokePath!) as SKEmitterNode
@@ -120,7 +120,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
 
         physicsBody = SKPhysicsBody(edgeLoopFromRect:frame)
         physicsBody?.categoryBitMask = wallMask
-        physicsWorld.gravity = CGVector(0, 0)
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
         _deadZone = SKSpriteNode(color:UIColor.redColor(), size:CGSize(width:size.width, height:10))
