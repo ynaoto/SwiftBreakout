@@ -73,7 +73,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
     var _ball, _pad, _deadZone: SKSpriteNode!
     var _blockSound, _padSound, _deadSound: SKAction!
 
-    func didBeginContact(contact: SKPhysicsContact!) {
+    func didBeginContact(contact: SKPhysicsContact) {
         var ballBody, againstBody: SKPhysicsBody
         
         if (contact.bodyA.categoryBitMask & ballMask) != 0 {
@@ -107,7 +107,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
             _ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             
             let smokePath = NSBundle.mainBundle().pathForResource("Smoke", ofType:"sks")
-            let smoke = NSKeyedUnarchiver.unarchiveObjectWithFile(smokePath!) as SKEmitterNode
+            let smoke = NSKeyedUnarchiver.unarchiveObjectWithFile(smokePath!) as! SKEmitterNode
             smoke.position = _ball.position
             addChild(smoke)
             
