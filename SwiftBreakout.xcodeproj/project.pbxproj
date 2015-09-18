@@ -173,6 +173,7 @@
 		93574EF5193D5AFC00493FA9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Naoto Yoshioka";
 				TargetAttributes = {
@@ -371,7 +372,7 @@
 		93574F1D193D5AFD00493FA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Xcode6Test.app/Xcode6Test";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwiftBreakoutTests.app/SwiftBreakoutTests";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -380,7 +381,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Xcode6TestTests/Info.plist;
+				INFOPLIST_FILE = SwiftBreakoutTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = SwiftBreakoutTests;
@@ -391,12 +392,12 @@
 		93574F1E193D5AFD00493FA9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Xcode6Test.app/Xcode6Test";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwiftBreakoutTests.app/SwiftBreakoutTests";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Xcode6TestTests/Info.plist;
+				INFOPLIST_FILE = SwiftBreakoutTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SwiftBreakoutTests;
