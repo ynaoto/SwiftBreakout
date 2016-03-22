@@ -42,11 +42,11 @@ class ViewController: UIViewController, MySceneDelegate {
     }
     
     func dead() {
-        _lifeCount--
+        _lifeCount -= 1
         
         if 0 < _lifeCount {
             NSTimer.scheduledTimerWithTimeInterval(3.0,
-                target:self, selector:"respawn",
+                target:self, selector:#selector(ViewController.respawn),
                 userInfo:nil, repeats:false)
         } else {
             gameOverButton.hidden = false
