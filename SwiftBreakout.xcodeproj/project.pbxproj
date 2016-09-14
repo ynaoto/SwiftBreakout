@@ -179,6 +179,7 @@
 				TargetAttributes = {
 					93574EFC193D5AFC00493FA9 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					93574F0E193D5AFD00493FA9 = {
 						CreatedOnToolsVersion = 6.0;
@@ -357,6 +358,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.self.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SwiftBreakout;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -369,6 +371,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.self.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SwiftBreakout;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

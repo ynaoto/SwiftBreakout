@@ -26,8 +26,8 @@ class ViewController: UIViewController, MySceneDelegate {
 
     func gameStart() {
         _lifeCount = 10
-        gameOverButton.hidden = true
-        gameClearButton.hidden = true
+        gameOverButton.isHidden = true
+        gameClearButton.isHidden = true
         
         _myScene.reset()
         _readyToFire = true
@@ -45,21 +45,21 @@ class ViewController: UIViewController, MySceneDelegate {
         _lifeCount -= 1
         
         if 0 < _lifeCount {
-            NSTimer.scheduledTimerWithTimeInterval(3.0,
+            Timer.scheduledTimer(timeInterval: 3.0,
                 target:self, selector:#selector(ViewController.respawn),
                 userInfo:nil, repeats:false)
         } else {
-            gameOverButton.hidden = false
+            gameOverButton.isHidden = false
         }
         _readyToFire = false
     }
     
     func clear() {
-        gameClearButton.hidden = false
+        gameClearButton.isHidden = false
         _readyToFire = false
     }
 
-    func setPadPosition(value:Float) {
+    func setPadPosition(_ value:Float) {
         if _readyToFire {
             _myScene.fire()
             _readyToFire = false
@@ -67,12 +67,12 @@ class ViewController: UIViewController, MySceneDelegate {
         _myScene.padX = value
     }
     
-    @IBAction func padSliderMoved(sender : UISlider) {
+    @IBAction func padSliderMoved(_ sender : UISlider) {
         setPadPosition(sender.value)
     }
     
-    @IBAction func pan(sender : UIPanGestureRecognizer) {
-        let value = Float(sender.locationInView(_myScene.view).x)
+    @IBAction func pan(_ sender : UIPanGestureRecognizer) {
+        let value = Float(sender.location(in: _myScene.view).x)
         padSlider.value = value
         setPadPosition(value)
     }
